@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Contact & Scheduling — Evergreen Tutoring Co.</title>
+  <link rel="preload" href="assets/logo.svg" as="image"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <meta name="description" content="Evergreen Tutoring Co. — K-5 tutoring in Math, Science, History, Reading/Writing. Small groups & 1:1. $35/hr."/>
+</head>
+<body>
+<header>
+  <div class="container navbar">
+    <div class="nav-left">
+      <img src="assets/logo.svg" alt="Evergreen logo"/>
+      <div class="brand">Evergreen Tutoring Co.</div>
+    </div>
+    <nav>
+      <button class="menu-btn btn btn-outline" aria-label="Open menu" onclick="toggleMenu()">Menu</button>
+      <div class="nav-links" id="nav">
+        <a href="index.html" >Home</a>
+        <a href="subjects.html" >Subjects</a>
+        <a href="tutors.html" >Tutors</a>
+        <a href="pricing.html" >Pricing</a>
+        <a href="contact.html" aria-current='page'>Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<div class="container">
+
+<section>
+  <h2>Contact & scheduling</h2>
+  <p class="lead">Ready to learn more or request a spot? Send us a note — we’ll reply with upcoming availability and a 10–15 minute intro call.</p>
+
+  <div class="grid">
+    <form class="card" style="grid-column: span 6" onsubmit="return handleSubmit(event)">
+      <h3>Quick inquiry</h3>
+      <label>
+        <div>Name</div>
+        <input id="name" required style="width:100%;padding:.6rem;border-radius:10px;border:1px solid #D1D5DB"/>
+      </label>
+      <label>
+        <div>Email</div>
+        <input id="email" type="email" required style="width:100%;padding:.6rem;border-radius:10px;border:1px solid #D1D5DB"/>
+      </label>
+      <label>
+        <div>Student’s grade (K–5)</div>
+        <input id="grade" required style="width:100%;padding:.6rem;border-radius:10px;border:1px solid #D1D5DB"/>
+      </label>
+      <label>
+        <div>Subject(s)</div>
+        <input id="subjects" placeholder="Math, Science, History, Reading/Writing" style="width:100%;padding:.6rem;border-radius:10px;border:1px solid #D1D5DB"/>
+      </label>
+      <label>
+        <div>Notes</div>
+        <textarea id="notes" rows="4" style="width:100%;padding:.6rem;border-radius:10px;border:1px solid #D1D5DB"></textarea>
+      </label>
+      <button class="btn btn-primary" type="submit">Send Inquiry</button>
+      <p id="status" aria-live="polite"></p>
+      <p style="font-size:.9rem;color:#3E6256">Or email us directly: <a href="mailto:saxena.nimit15@gmail.com">saxena.nimit15@gmail.com</a></p>
+    </form>
+
+    <div class="card" style="grid-column: span 6">
+      <h3>Scheduling</h3>
+      <ul>
+        <li>After‑school slots (Mon–Fri) and weekends</li>
+        <li>30, 45, or 60‑minute sessions</li>
+        <li>1:1 or small group (2–4 students)</li>
+      </ul>
+      <h3>Payments</h3>
+      <ul>
+        <li>$35/hour per student</li>
+        <li>Cash, Zelle, or Venmo accepted</li>
+      </ul>
+      <h3>Location</h3>
+      <p>Online via video or local meet‑ups by arrangement.</p>
+    </div>
+  </div>
+</section>
+
+</div>
+<footer>
+  <div class="container inner">
+    <div>
+      <strong>Evergreen Tutoring Co.</strong><br/>
+      K-5 small-group & 1:1 instruction • $35/hr per student<br/>
+      Payments: Cash, Zelle, Venmo
+    </div>
+    <div>
+      <div class="kicker">Contact</div>
+      <a href="mailto:saxena.nimit15@gmail.com">saxena.nimit15@gmail.com</a>
+    </div>
+    <div>
+      <div class="kicker">Where We Shine</div>
+      Personalized plans • Flexible scheduling • Progress reports • Diagnostic placement • Homework help
+    </div>
+  </div>
+  <div class="container footer-note">
+    © 2025 Evergreen Tutoring Co. All rights reserved.
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

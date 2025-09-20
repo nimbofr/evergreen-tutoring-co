@@ -1,0 +1,132 @@
+
+/* Evergreen Tutoring Co. — Global Styles */
+:root{
+  --bg: #F8FAF9;
+  --card: #FFFFFF;
+  --ink: #0B3B2E;
+  --muted: #3E6256;
+  --brand: #0F766E;
+  --brand-2:#065F46;
+  --accent:#A7F3D0;
+  --ring:#99F6E4;
+  --shadow: 0 10px 20px rgba(0,0,0,.06), 0 6px 6px rgba(0,0,0,.04);
+}
+
+*{box-sizing: border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol";
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+/* Layout */
+.container{
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+}
+
+header{
+  background: #ECFDF5;
+  border-bottom: 1px solid #DCFCE7;
+  position: sticky;
+  top:0;
+  z-index: 50;
+  backdrop-filter: blur(6px);
+}
+
+.navbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: .75rem 0;
+  gap: 1rem;
+}
+
+.nav-left{display:flex;align-items:center;gap:.75rem}
+.nav-left img{height:40px}
+.nav-left .brand{font-weight:800;color:var(--brand-2);letter-spacing:.2px}
+
+.nav-links{
+  display:flex;gap:1rem;flex-wrap:wrap;
+}
+.nav-links a{
+  text-decoration:none; color: var(--ink);
+  padding:.5rem .75rem;border-radius:10px;
+}
+.nav-links a:hover,.nav-links a[aria-current="page"]{
+  background: var(--accent);
+}
+.menu-btn{
+  display:none;
+}
+
+/* Hero */
+.hero{
+  display:grid;grid-template-columns: 1.2fr 1fr; gap:2rem;
+  padding: 2.5rem 0;
+}
+.hero h1{font-size: clamp(1.8rem, 4vw, 3rem); line-height:1.1; margin:0 0 .5rem 0}
+.lead{font-size:1.125rem;color:var(--muted)}
+
+.cta{
+  display:flex;gap:.75rem;margin-top:1rem;flex-wrap:wrap;
+}
+.btn{
+  appearance:none;border:0;border-radius:12px;padding:.8rem 1rem;
+  font-weight:700; text-decoration:none; cursor:pointer;
+  box-shadow: var(--shadow); display:inline-flex; align-items:center; gap:.5rem;
+}
+.btn-primary{ background: var(--brand); color:white}
+.btn-outline{ background:white; color: var(--brand-2); border:1px solid #D1FAE5}
+.btn:focus{ outline: 3px solid var(--ring) }
+
+/* Cards */
+.grid{
+  display:grid; gap:1rem;
+  grid-template-columns: repeat(12, 1fr);
+}
+.card{
+  grid-column: span 4;
+  background: var(--card); border:1px solid #E2E8F0; border-radius: 16px;
+  padding:1rem; box-shadow: var(--shadow);
+}
+.card h3{margin:.25rem 0}
+.badge{display:inline-block;padding:.15rem .5rem;border-radius:999px;background:#E7F9F3;color:#075E54;font-weight:700;font-size:.75rem}
+
+/* Sections */
+section{padding:2rem 0}
+section h2{font-size: clamp(1.4rem, 3vw, 2rem); margin:0 0 .75rem 0}
+
+/* Footer */
+footer{
+  margin-top: 2rem; background:#052B25; color:#D1FAE5;
+}
+footer .inner{display:flex;justify-content:space-between;gap:2rem; padding:2rem 0; flex-wrap:wrap}
+footer a{color:#A7F3D0; text-decoration:none}
+.footer-note{border-top:1px solid rgba(255,255,255,.1); padding:1rem 0; font-size:.9rem; color:#9FE0D2}
+
+.figure{width:100%;border-radius:16px;overflow:hidden; box-shadow: var(--shadow); border:1px solid #E2E8F0}
+.figure img{display:block;width:100%;height:auto}
+
+.kicker{letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:#2F6F64;font-size:.8rem}
+
+/* Tables */
+.table{
+  width:100%; border-collapse: collapse; background:white; border-radius:16px; overflow:hidden; box-shadow: var(--shadow);
+}
+.table th,.table td{padding:.9rem 1rem; border-bottom:1px solid #EEF2F6; text-align:left}
+.table tr:last-child td{border-bottom:0}
+.table th{background:#ECFDF5}
+
+/* Responsive */
+@media (max-width: 900px){
+  .hero{grid-template-columns: 1fr}
+  .card{grid-column: span 6}
+  .nav-links{display:none}
+  .menu-btn{display:inline-flex}
+}
+@media (max-width: 600px){
+  .card{grid-column: span 12}
+}
