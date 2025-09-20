@@ -121,6 +121,15 @@ footer a{color:#A7F3D0; text-decoration:none}
 .table tr:last-child td{border-bottom:0}
 .table th{background:#ECFDF5}
 
+
+.tutor-photo {
+  width: 250px;       /* set width */
+  height: 400px;      /* set height */
+  object-fit: cover;  /* crops to fill box without distortion */
+  border-radius: 12px; /* optional: rounded corners */
+  box-shadow: var(--shadow);
+}
+
 /* Responsive */
 @media (max-width: 900px){
   .hero{grid-template-columns: 1fr}
