@@ -95,15 +95,6 @@ header{
 .card h3{margin:.25rem 0}
 .badge{display:inline-block;padding:.15rem .5rem;border-radius:999px;background:#E7F9F3;color:#075E54;font-weight:700;font-size:.75rem}
 
-/* Consistent tutor profile images */
-.tutor-photo {
-  width: 250px;       /* set width */
-  height: 250px;      /* set height */
-  object-fit: cover;  /* crops to fill box without distortion */
-  border-radius: 12px; /* optional: rounded corners */
-  box-shadow: var(--shadow);
-}
-
 
 /* Sections */
 section{padding:2rem 0}
