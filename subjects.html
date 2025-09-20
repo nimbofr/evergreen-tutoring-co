@@ -1,90 +1,356 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Subjects & Curriculum (K–5) — Evergreen Tutoring Co.</title>
-  <link rel="preload" href="assets/logo.svg" as="image"/>
+  <meta name="description" content="Evergreen Tutoring Co. K–5 subjects with grade-by-grade outcomes, activities, and tips. Inline SVG illustrations and animations, no new external assets."/>
+  <!-- Keep your existing site styles & scripts -->
   <link rel="stylesheet" href="css/style.css"/>
-  <meta name="description" content="Evergreen Tutoring Co. — K-5 tutoring in Math, Science, History, Reading/Writing. Small groups & 1:1. $35/hr."/>
+
+  <!-- Inline-only styles for this page (animations, SVG tweaks, layout helpers) -->
+  <style>
+    /* --- Local tokens (harmonize with existing palette) --- */
+    :root{
+      --eg-ink:#0B3B2E; --eg-brand:#0F766E; --eg-brand2:#065F46;
+      --eg-accent:#A7F3D0; --eg-soft:#ECFDF5; --eg-line:#E2E8F0;
+    }
+
+    /* Page hero add-ons */
+    .subjects-hero{
+      display:grid; grid-template-columns:1.2fr 1fr; gap:1.5rem; align-items:center;
+      padding: 1.25rem 0 0;
+    }
+    .subjects-illo{ background:#fff; border:1px solid var(--eg-line); border-radius:16px; overflow:hidden; box-shadow: var(--shadow); }
+
+    /* Cards tuned for this page */
+    .topic-card{ background:#fff; border:1px solid var(--eg-line); border-radius:16px; padding:1rem; box-shadow: var(--shadow); }
+    .topic-grid{ display:grid; gap:1rem; grid-template-columns: repeat(12,1fr); }
+    .topic-card.span-6{ grid-column: span 6; }
+    .topic-card.span-4{ grid-column: span 4; }
+    .topic-card h3{ margin:.25rem 0; }
+    .topic-badge{ display:inline-block; background:#E7F9F3; color:#075E54; border:1px solid #CFF7EA; border-radius:999px; font-weight:700; font-size:.8rem; padding:.2rem .55rem;}
+
+    /* Collapsibles (no extra JS needed) */
+    details.curric{ background:#fff; border:1px solid var(--eg-line); border-radius:14px; padding:.6rem .8rem; box-shadow:var(--shadow); }
+    details.curric + details.curric{ margin-top:.6rem; }
+    summary.curric-head{ list-style:none; cursor:pointer; display:flex; align-items:center; gap:.5rem; color:var(--eg-brand2); font-weight:800; }
+    summary.curric-head::-webkit-details-marker{ display:none; }
+    .chev{ transition: transform .2s ease; }
+    details[open] .chev{ transform: rotate(90deg); }
+
+    /* Table look for learning progressions */
+    .thin-table{ width:100%; border-collapse:collapse; background:#fff; border-radius:16px; overflow:hidden; box-shadow:var(--shadow); }
+    .thin-table th, .thin-table td{ padding:.8rem 1rem; border-bottom:1px solid #EEF2F6; text-align:left; }
+    .thin-table th{ background:var(--eg-soft); }
+
+    /* Local animations */
+    @keyframes floaty { 0%{transform:translateY(0)} 50%{transform:translateY(-8px)} 100%{transform:translateY(0)} }
+    @keyframes pop { 0%{opacity:0; transform:translateY(8px)} 100%{opacity:1; transform:none} }
+    .floaty{ animation: floaty 6s ease-in-out infinite; }
+    .pop{ animation: pop .5s ease both; }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px){
+      .subjects-hero{ grid-template-columns:1fr; }
+      .topic-card.span-6, .topic-card.span-4{ grid-column: span 12; }
+    }
+  </style>
 </head>
 <body>
 <header>
   <div class="container navbar">
     <div class="nav-left">
-      <img src="assets/logo.svg" alt="Evergreen logo"/>
+      <!-- Small inline mark to avoid new assets -->
+      <svg width="40" height="40" viewBox="0 0 96 96" aria-hidden="true">
+        <defs>
+          <linearGradient id="eg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#0F766E"/>
+            <stop offset="100%" stop-color="#065F46"/>
+          </linearGradient>
+        </defs>
+        <rect rx="12" ry="12" width="96" height="96" fill="url(#eg)"/>
+        <g transform="translate(18,18)">
+          <path d="M30 0 L60 24 L30 48 L0 24 Z" fill="#A7F3D0"/>
+          <circle cx="30" cy="24" r="10" fill="#ECFDF5" class="floaty"/>
+        </g>
+      </svg>
       <div class="brand">Evergreen Tutoring Co.</div>
     </div>
     <nav>
       <button class="menu-btn btn btn-outline" aria-label="Open menu" onclick="toggleMenu()">Menu</button>
       <div class="nav-links" id="nav">
-        <a href="index.html" >Home</a>
-        <a href="subjects.html" aria-current='page'>Subjects</a>
-        <a href="tutors.html" >Tutors</a>
-        <a href="pricing.html" >Pricing</a>
-        <a href="contact.html" >Contact</a>
+        <a href="index.html">Home</a>
+        <a href="subjects.html" aria-current="page">Subjects</a>
+        <a href="tutors.html">Tutors</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="contact.html">Contact</a>
       </div>
     </nav>
   </div>
 </header>
+
 <div class="container">
+  <!-- HERO -->
+  <section class="subjects-hero">
+    <div class="pop">
+      <div class="kicker">K–5 Programs</div>
+      <h1>Clear learning paths with hands-on practice</h1>
+      <p class="lead">We scaffold skills in <strong>Math, Science, History, and Reading/Writing</strong> across K–1, 2–3, and 4–5. Expect diagnostic placement, small-group or 1:1 formats, and progress notes after sessions.</p>
+      <div class="cta">
+        <span class="topic-badge">Diagnostic placement</span>
+        <span class="topic-badge">Small groups or 1:1</span>
+        <span class="topic-badge">Progress tracking</span>
+      </div>
+    </div>
 
-<section>
-  <h2>Subjects & curriculum (K–5)</h2>
-  <p class="lead">Aligned with common state standards and best practices in personalized learning. We combine direct instruction, guided practice, and joyful projects to build confidence and mastery.</p>
-</section>
+    <!-- Inline SVG “illustration” with gentle motion -->
+    <figure class="subjects-illo pop" aria-label="Evergreen learning illustration">
+      <svg viewBox="0 0 560 360" width="100%" role="img" aria-label="Kids learning with math, science, and history icons">
+        <defs>
+          <linearGradient id="bgf" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#ECFDF5"/>
+            <stop offset="100%" stop-color="#E6FAF4"/>
+          </linearGradient>
+        </defs>
+        <rect width="560" height="360" rx="16" fill="url(#bgf)"/>
+        <!-- Books -->
+        <g transform="translate(60,220)">
+          <rect width="140" height="90" rx="10" fill="#FFFFFF" stroke="#D1FAE5"/>
+          <rect x="160" width="140" height="90" rx="10" fill="#FFFFFF" stroke="#D1FAE5"/>
+          <rect x="320" width="140" height="90" rx="10" fill="#FFFFFF" stroke="#D1FAE5"/>
+          <rect y="70" width="420" height="10" rx="5" fill="#D1FAE5"/>
+        </g>
+        <!-- Icons -->
+        <g transform="translate(95,90) scale(1.1)">
+          <!-- Math -->
+          <g class="floaty">
+            <circle cx="0" cy="0" r="28" fill="#A7F3D0" stroke="#84E1BC"/>
+            <text x="-12" y="6" font-family="ui-sans-serif, system-ui" font-size="24" fill="#065F46">7×3</text>
+          </g>
+          <!-- Science -->
+          <g transform="translate(130,0)" class="floaty" style="animation-delay: .6s">
+            <circle cx="0" cy="0" r="28" fill="#A7F3D0" stroke="#84E1BC"/>
+            <path d="M-8 6 Q0 -12 8 6 Z" fill="none" stroke="#065F46" stroke-width="2"/>
+            <circle cx="-8" cy="6" r="3" fill="#065F46"/><circle cx="0" cy="-12" r="3" fill="#065F46"/><circle cx="8" cy="6" r="3" fill="#065F46"/>
+          </g>
+          <!-- History -->
+          <g transform="translate(260,0)" class="floaty" style="animation-delay: 1.2s">
+            <circle cx="0" cy="0" r="28" fill="#A7F3D0" stroke="#84E1BC"/>
+            <rect x="-12" y="-10" width="24" height="20" rx="3" fill="none" stroke="#065F46" stroke-width="2"/>
+            <path d="M-6 -10 v-6 h12 v6" stroke="#065F46" fill="none" stroke-width="2"/>
+          </g>
+          <!-- Reading -->
+          <g transform="translate(390,0)" class="floaty" style="animation-delay: 1.8s">
+            <circle cx="0" cy="0" r="28" fill="#A7F3D0" stroke="#84E1BC"/>
+            <path d="M-12 10 Q-6 0 0 6 Q6 0 12 10" fill="none" stroke="#065F46" stroke-width="2"/>
+            <path d="M-12 -10 Q-6 -2 0 -6 Q6 -2 12 -10" fill="none" stroke="#065F46" stroke-width="2"/>
+          </g>
+        </g>
+      </svg>
+    </figure>
+  </section>
 
-<section>
-  <h2>Math</h2>
-  <div class="grid">
-    <article class="card"><h3>K–1</h3><p>Counting to 100, comparing numbers, shapes, simple addition/subtraction with manipulatives, story problems with pictures.</p></article>
-    <article class="card"><h3>2–3</h3><p>Place value to 1,000, addition/subtraction fluency, arrays & intro multiplication, time & money, data & bar graphs.</p></article>
-    <article class="card"><h3>4–5</h3><p>Multi-digit operations, factors & multiples, fractions & decimals, measurement & geometry, multi‑step word problems.</p></article>
-  </div>
-</section>
+  <!-- At-a-glance progression -->
+  <section>
+    <h2>Skill progression by grade band</h2>
+    <table class="thin-table" aria-describedby="progression">
+      <thead><tr><th>Subject</th><th>K–1</th><th>2–3</th><th>4–5</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Math</strong></td>
+          <td>Counting, number sense, shapes, add/sub within 20</td>
+          <td>Place value, fluency, intro multiplication/division, time & money</td>
+          <td>Multi-digit operations, fractions/decimals, geometry, multi-step word problems</td>
+        </tr>
+        <tr>
+          <td><strong>Science</strong></td>
+          <td>Plants & animals, weather, simple experiments</td>
+          <td>Habitats, matter, force & motion, data tables</td>
+          <td>Earth systems, energy, fair tests, lab write-ups</td>
+        </tr>
+        <tr>
+          <td><strong>History</strong></td>
+          <td>Community & rules, maps & timelines</td>
+          <td>U.S. symbols, cultures, early civilizations</td>
+          <td>U.S. regions, government basics, primary sources</td>
+        </tr>
+        <tr>
+          <td><strong>Reading/Writing</strong></td>
+          <td>Phonics, sight words, read-alouds, handwriting</td>
+          <td>Fluency, paragraphs, main idea & details</td>
+          <td>Summaries, essays, research, grammar & revision</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 
-<section>
-  <h2>Science</h2>
-  <div class="grid">
-    <article class="card"><h3>K–1</h3><p>What living things need, weather & seasons, five senses, simple experiments (sink/float, magnets, ramps).</p></article>
-    <article class="card"><h3>2–3</h3><p>Habitats & food chains, solids/liquids/gases, light & sound, data collection with tables & simple charts.</p></article>
-    <article class="card"><h3>4–5</h3><p>Earth systems & cycles, energy & motion, fair‑test investigations, reading scientific texts & writing lab reports.</p></article>
-  </div>
-</section>
+  <!-- Deep dives (collapsible per subject) -->
+  <section>
+    <h2>Deep dives & sample activities</h2>
 
-<section>
-  <h2>History & Social Studies</h2>
-  <div class="grid">
-    <article class="card"><h3>K–1</h3><p>Community helpers, rules & responsibilities, maps & globes, family culture & traditions.</p></article>
-    <article class="card"><h3>2–3</h3><p>Local & national symbols, early civilizations, comparing communities, timelines & sequence.</p></article>
-    <article class="card"><h3>4–5</h3><p>U.S. geography, state regions, government basics, research skills & primary sources.</p></article>
-  </div>
-</section>
+    <!-- Math -->
+    <details class="curric pop" open>
+      <summary class="curric-head">
+        <svg class="chev" width="16" height="16" viewBox="0 0 24 24"><path d="M8 5l8 7-8 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        Math — build fluency and problem-solving
+        <span class="topic-badge" style="margin-left:.5rem">games & manipulatives</span>
+      </summary>
+      <div class="topic-grid" style="margin-top:.8rem">
+        <div class="topic-card span-4">
+          <h3>K–1</h3>
+          <ul>
+            <li>Counting to 100, ten-frames, number bonds</li>
+            <li>Shapes & measurement with real objects</li>
+            <li><em>Activity:</em> “Grocery sort” — group items by attribute, add/sub within 10</li>
+          </ul>
+        </div>
+        <div class="topic-card span-4">
+          <h3>2–3</h3>
+          <ul>
+            <li>Place value to 1,000, regrouping fluency</li>
+            <li>Arrays → multiplication facts; time & money</li>
+            <li><em>Activity:</em> “Array city” — build cityscapes from equal groups</li>
+          </ul>
+        </div>
+        <div class="topic-card span-4">
+          <h3>4–5</h3>
+          <ul>
+            <li>Multi-digit operations, factors & multiples</li>
+            <li>Fractions/decimals; geometry & measurement</li>
+            <li><em>Activity:</em> “Recipe doubles” — fraction ops with real recipes</li>
+          </ul>
+        </div>
+      </div>
+    </details>
 
-<section>
-  <h2>Reading & Writing</h2>
-  <div class="grid">
-    <article class="card"><h3>K–1</h3><p>Phonological awareness, phonics & decoding, high‑frequency words, shared reading, handwriting.</p></article>
-    <article class="card"><h3>2–3</h3><p>Fluency, main idea & details, paragraph writing, grammar basics, reading response journals.</p></article>
-    <article class="card"><h3>4–5</h3><p>Summarizing & inference, multi‑paragraph essays, research projects, revision & editing.</p></article>
-  </div>
-</section>
+    <!-- Science -->
+    <details class="curric pop">
+      <summary class="curric-head">
+        <svg class="chev" width="16" height="16" viewBox="0 0 24 24"><path d="M8 5l8 7-8 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        Science — curiosity through fair tests
+        <span class="topic-badge" style="margin-left:.5rem">hands-on labs</span>
+      </summary>
+      <div class="topic-grid" style="margin-top:.8rem">
+        <div class="topic-card span-4">
+          <h3>K–1</h3>
+          <ul>
+            <li>Living/non-living, weather & seasons</li>
+            <li>Observe & record with pictures</li>
+            <li><em>Activity:</em> “Sink or float” prediction charts</li>
+          </ul>
+        </div>
+        <div class="topic-card span-4">
+          <h3>2–3</h3>
+          <ul>
+            <li>Habitats, food chains; matter & states</li>
+            <li>Data tables & simple graphs</li>
+            <li><em>Activity:</em> “Shadow chase” — light & measurement</li>
+          </ul>
+        </div>
+        <div class="topic-card span-4">
+          <h3>4–5</h3>
+          <ul>
+            <li>Earth systems, energy & motion</li>
+            <li>Plan & run fair tests; write lab reports</li>
+            <li><em>Activity:</em> “Ramp racers” — variables & averages</li>
+          </ul>
+        </div>
+      </div>
+    </details>
 
-<section>
-  <h2>Formats</h2>
-  <ul>
-    <li><strong>1:1 Tutoring:</strong> fully personalized pacing.</li>
-    <li><strong>Small Groups (2–4 students):</strong> peers at similar levels; collaborative practice.</li>
-    <li><strong>Homework Help & Study Skills:</strong> planners, checklists, and “show your thinking” routines.</li>
-  </ul>
-</section>
+    <!-- History -->
+    <details class="curric pop">
+      <summary class="curric-head">
+        <svg class="chev" width="16" height="16" viewBox="0 0 24 24"><path d="M8 5l8 7-8 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        History & Social Studies — maps, culture, and civic basics
+        <span class="topic-badge" style="margin-left:.5rem">primary sources</span>
+      </summary>
+      <div class="topic-grid" style="margin-top:.8rem">
+        <div class="topic-card span-4">
+          <h3>K–1</h3>
+          <ul>
+            <li>Community helpers, rules & routines</li>
+            <li>Maps & timelines with photos</li>
+            <li><em>Activity:</em> “My timeline” — 3-event personal history</li>
+          </ul>
+        </div>
+        <div class="topic-card span-4">
+          <h3>2–3</h3>
+          <ul>
+            <li>Local & national symbols, early cultures</li>
+            <li>Compare communities; cause & effect</li>
+            <li><em>Activity:</em> “Artifact mystery” — observe → infer</li>
+          </ul>
+        </div>
+        <div class="topic-card span-4">
+          <h3>4–5</h3>
+          <ul>
+            <li>U.S. regions & gov’t basics; inquiry projects</li>
+            <li>Read/annotate primary & secondary sources</li>
+            <li><em>Activity:</em> “State expo” — research & present</li>
+          </ul>
+        </div>
+      </div>
+    </details>
 
+    <!-- Reading/Writing -->
+    <details class="curric pop">
+      <summary class="curric-head">
+        <svg class="chev" width="16" height="16" viewBox="0 0 24 24"><path d="M8 5l8 7-8 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        Reading & Writing — from phonics to research
+        <span class="topic-badge" style="margin-left:.5rem">structured literacy</span>
+      </summary>
+      <div class="topic-grid" style="margin-top:.8rem">
+        <div class="topic-card span-4">
+          <h3>K–1</h3>
+          <ul>
+            <li>Phonemic awareness, phonics & decoding</li>
+            <li>High-frequency words; read-alouds</li>
+            <li><em>Activity:</em> “Word builders” with tiles</li>
+          </ul>
+        </div>
+        <div class="topic-card span-4">
+          <h3>2–3</h3>
+          <ul>
+            <li>Fluency; main idea & details; paragraphing</li>
+            <li>Grammar & sentence combining</li>
+            <li><em>Activity:</em> “Paragraph puzzles” (topic → details)</li>
+          </ul>
+        </div>
+        <div class="topic-card span-4">
+          <h3>4–5</h3>
+          <ul>
+            <li>Summaries & inference; multi-paragraph essays</li>
+            <li>Research, quoting, and revision cycles</li>
+            <li><em>Activity:</em> “Claim–evidence–reasoning” journals</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- Study tips -->
+  <section>
+    <h2>Study tips that work at home</h2>
+    <div class="topic-grid">
+      <div class="topic-card span-6">
+        <h3>Short, frequent practice</h3>
+        <p>10–15 minute bursts, 4–5x/week, beat long cram sessions. Use timers and celebrate small wins.</p>
+      </div>
+      <div class="topic-card span-6">
+        <h3>Show your thinking</h3>
+        <p>Have students talk through their steps or annotate. We model sentence starters and math diagrams.</p>
+      </div>
+    </div>
+  </section>
 </div>
+
 <footer>
   <div class="container inner">
     <div>
       <strong>Evergreen Tutoring Co.</strong><br/>
-      K-5 small-group & 1:1 instruction • $35/hr per student<br/>
+      K–5 small-group & 1:1 instruction • $35/hr per student<br/>
       Payments: Cash, Zelle, Venmo
     </div>
     <div>
@@ -100,6 +366,23 @@
     © 2025 Evergreen Tutoring Co. All rights reserved.
   </div>
 </footer>
+
+<!-- Keep your existing main.js; any NEW behavior specific to this page lives inline below -->
+<script>
+  // Optional: reveal-on-scroll for .pop elements (contained here, not in main.js)
+  (function(){
+    const els = document.querySelectorAll('.pop');
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.style.animationPlayState = 'running'; obs.unobserve(e.target); }
+      });
+    }, { threshold: .2 });
+    els.forEach(el=>{
+      el.style.animationPlayState = 'paused';
+      obs.observe(el);
+    });
+  })();
+</script>
 <script src="js/main.js"></script>
 </body>
 </html>
