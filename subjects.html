@@ -8,17 +8,20 @@
   <!-- Keep your existing site styles & scripts -->
   <link rel="stylesheet" href="css/style.css"/>
 
-  <!-- Local-only styles for this page (no animations) -->
+  <!-- Local-only styles for this page (no images/animations) -->
   <style>
     :root{
       --eg-ink:#0B3B2E; --eg-brand:#0F766E; --eg-brand2:#065F46;
       --eg-soft:#ECFDF5; --eg-line:#E2E8F0;
     }
+
+    /* Single-column hero (figure removed) */
     .subjects-hero{
-      display:grid; grid-template-columns:1.2fr 1fr; gap:1.5rem; align-items:center;
+      display:block;
       padding: 1.25rem 0 0;
+      max-width: 860px;
     }
-    .subjects-illo{ background:#fff; border:1px solid var(--eg-line); border-radius:16px; overflow:hidden; box-shadow: var(--shadow); }
+
     .topic-grid{ display:grid; gap:1rem; grid-template-columns: repeat(12,1fr); }
     .topic-card{ background:#fff; border:1px solid var(--eg-line); border-radius:16px; padding:1rem; box-shadow: var(--shadow); }
     .span-4{ grid-column: span 4; }
@@ -34,8 +37,8 @@
     details.curric + details.curric{ margin-top:.6rem; }
     summary.curric-head{ list-style:none; cursor:pointer; display:flex; align-items:center; gap:.5rem; color:var(--eg-brand2); font-weight:800; }
     summary.curric-head::-webkit-details-marker{ display:none; }
+
     @media (max-width: 900px){
-      .subjects-hero{ grid-template-columns:1fr; }
       .span-4,.span-6{ grid-column: span 12; }
     }
   </style>
@@ -44,7 +47,7 @@
 <header>
   <div class="container navbar">
     <div class="nav-left">
-      <!-- Small inline mark to avoid new assets -->
+      <!-- Small inline mark to avoid new assets; keep or replace with your logo.svg if desired -->
       <svg width="40" height="40" viewBox="0 0 96 96" aria-hidden="true">
         <defs>
           <linearGradient id="eg" x1="0" y1="0" x2="1" y2="1">
@@ -74,65 +77,18 @@
 </header>
 
 <div class="container">
-  <!-- HERO -->
+  <!-- HERO (figure removed) -->
   <section class="subjects-hero">
     <div>
       <div class="kicker">K–5 Programs</div>
       <h1>Clear, outcomes-based learning paths for every grade</h1>
       <p class="lead">We teach core skills in <strong>Math, Science, History, and Reading/Writing</strong> with a structured sequence, practical activities, and simple progress feedback parents can trust.</p>
-      <div class="cta">
+      <div class="cta" style="gap:.5rem; flex-wrap:wrap;">
         <span class="badge">Diagnostic placement</span>
         <span class="badge">Small groups or 1:1</span>
         <span class="badge">Progress notes & targets</span>
       </div>
     </div>
-    <!-- Static inline illustration (no animation) -->
-    <figure class="subjects-illo" aria-label="Evergreen subjects illustration">
-      <svg viewBox="0 0 560 360" width="100%" role="img" aria-label="Books and subject icons">
-        <defs>
-          <linearGradient id="bgf" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#ECFDF5"/>
-            <stop offset="100%" stop-color="#E6FAF4"/>
-          </linearGradient>
-        </defs>
-        <rect width="560" height="360" rx="16" fill="url(#bgf)"/>
-        <!-- Shelves -->
-        <rect x="40" y="250" width="480" height="12" rx="6" fill="#D1FAE5"/>
-        <rect x="80" y="262" width="400" height="8" rx="4" fill="#E7F9F3"/>
-        <!-- Books -->
-        <g fill="#FFFFFF" stroke="#D1FAE5">
-          <rect x="70"  y="170" width="120" height="80" rx="10"/>
-          <rect x="210" y="170" width="120" height="80" rx="10"/>
-          <rect x="350" y="170" width="120" height="80" rx="10"/>
-        </g>
-        <!-- Subject icons -->
-        <g transform="translate(110,120)">
-          <!-- Math -->
-          <circle cx="0" cy="0" r="26" fill="#A7F3D0" stroke="#84E1BC"/>
-          <text x="-12" y="6" font-family="ui-sans-serif, system-ui" font-size="22" fill="#065F46">7×3</text>
-        </g>
-        <g transform="translate(250,120)">
-          <!-- Science -->
-          <circle cx="0" cy="0" r="26" fill="#A7F3D0" stroke="#84E1BC"/>
-          <path d="M-8 6 Q0 -12 8 6 Z" fill="none" stroke="#065F46" stroke-width="2"/>
-          <circle cx="-8" cy="6" r="3" fill="#065F46"/>
-          <circle cx="0" cy="-12" r="3" fill="#065F46"/>
-          <circle cx="8" cy="6" r="3" fill="#065F46"/>
-        </g>
-        <g transform="translate(390,120)">
-          <!-- History -->
-          <circle cx="0" cy="0" r="26" fill="#A7F3D0" stroke="#84E1BC"/>
-          <rect x="-12" y="-10" width="24" height="20" rx="3" fill="none" stroke="#065F46" stroke-width="2"/>
-          <path d="M-6 -10 v-6 h12 v6" stroke="#065F46" fill="none" stroke-width="2"/>
-        </g>
-        <g transform="translate(500,60)">
-          <!-- Reading -->
-          <circle cx="0" cy="0" r="26" fill="#A7F3D0" stroke="#84E1BC"/>
-          <path d="M-12 10 Q-6 0 0 6 Q6 0 12 10" fill="none" stroke="#065F46" stroke-width="2"/>
-          <path d="M-12 -10 Q-6 -2 0 -6 Q6 -2 12 -10" fill="none" stroke="#065F46" stroke-width="2"/>
-        </g>
-      </svg>
-    </figure>
   </section>
 
   <!-- At-a-glance -->
@@ -169,7 +125,7 @@
     </table>
   </section>
 
-  <!-- Deep Curriculum Descriptions -->
+  <!-- Detailed Curriculum (expanded, parent-focused) -->
   <section>
     <h2>Detailed curriculum & example learning sequences</h2>
 
@@ -181,37 +137,37 @@
           <h3>K–1 Foundations</h3>
           <p class="subhead">Outcomes: solid number sense, accurate counting, early addition/subtraction.</p>
           <ul>
-            <li><strong>Number Sense:</strong> count to 100, compare numbers, use 10-frames & number lines.</li>
-            <li><strong>Operations:</strong> add/sub within 10 (then 20) using manipulatives & drawings.</li>
-            <li><strong>Geometry & Measure:</strong> identify shapes, length/weight with nonstandard units.</li>
-            <li><strong>Word Problems:</strong> picture models to choose the right operation.</li>
+            <li><strong>Number Sense:</strong> count to 100; compare numbers using symbols and words; use 10-frames & number lines.</li>
+            <li><strong>Operations:</strong> add/sub within 10 (then 20) using manipulatives, drawings, and story problems.</li>
+            <li><strong>Geometry & Measure:</strong> identify & describe 2D shapes; measure length/weight with nonstandard units.</li>
+            <li><strong>Word Problems:</strong> pick the operation based on visuals; explain “how you know.”</li>
           </ul>
-          <p><em>Activities:</em> “Grocery sort”, dice addition races, build-and-trace shapes.</p>
+          <p><em>Activities:</em> “Grocery sort,” dice addition races, build-and-trace shapes.</p>
           <p><em>Checks:</em> quick fluency sprints, exit tickets, parent-friendly goal trackers.</p>
         </div>
         <div class="topic-card span-4">
           <h3>Grades 2–3 Growth</h3>
-          <p class="subhead">Outcomes: fluent add/sub, build multiplication/division concepts.</p>
+          <p class="subhead">Outcomes: fluent add/sub; strong base for multiplication/division.</p>
           <ul>
-            <li><strong>Place Value:</strong> to 1,000; regrouping with base-10 blocks.</li>
-            <li><strong>Facts & Fluency:</strong> add/sub within 100; arrays, equal groups (2–10s).</li>
-            <li><strong>Data & Time:</strong> read clocks, money problems, bar/picture graphs.</li>
-            <li><strong>Word Problems:</strong> 1–2 step, model-first strategies.</li>
+            <li><strong>Place Value:</strong> to 1,000; regrouping with base-10 blocks; mental strategies.</li>
+            <li><strong>Facts & Fluency:</strong> add/sub within 100; arrays & equal groups (2s–10s) lay the foundation for multiplication.</li>
+            <li><strong>Data & Time:</strong> read clocks to nearest 5; money word problems; bar/picture graphs.</li>
+            <li><strong>Word Problems:</strong> one–two step, model-first strategies, explain your reasoning.</li>
           </ul>
-          <p><em>Activities:</em> “Array city”, coin-count shop, graph the class survey.</p>
-          <p><em>Checks:</em> timed math facts (balanced), strategy conferences, mini-quizzes.</p>
+          <p><em>Activities:</em> “Array city,” coin-count shop, graph the class survey.</p>
+          <p><em>Checks:</em> balanced fact practice, strategy conferences, mini-quizzes.</p>
         </div>
         <div class="topic-card span-4">
           <h3>Grades 4–5 Mastery</h3>
-          <p class="subhead">Outcomes: multi-step problem solving, fraction/decimal proficiency.</p>
+          <p class="subhead">Outcomes: multi-step problem solving; fraction/decimal proficiency.</p>
           <ul>
-            <li><strong>Operations:</strong> multi-digit add/sub/multiply/divide with place-value models.</li>
-            <li><strong>Fractions/Decimals:</strong> equivalence, compare/order, add/sub; tenths/hundredths.</li>
-            <li><strong>Measurement & Geometry:</strong> area/volume/angles; coordinate grids.</li>
-            <li><strong>Word Problems:</strong> multi-step with estimation & reasonableness checks.</li>
+            <li><strong>Operations:</strong> multi-digit add/sub/multiply/divide with place-value models and algorithms.</li>
+            <li><strong>Fractions/Decimals:</strong> equivalence; compare/order; add/sub; tenths/hundredths in context.</li>
+            <li><strong>Measurement & Geometry:</strong> area/volume/angles; coordinate grids; unit conversions.</li>
+            <li><strong>Word Problems:</strong> multi-step with estimation & “reasonableness” checks.</li>
           </ul>
           <p><em>Activities:</em> “Recipe doubles” (fraction ops), angle scavenger hunt, budget projects.</p>
-          <p><em>Checks:</em> mixed-problem journals, corrections with reflection, unit end-tasks.</p>
+          <p><em>Checks:</em> mixed-problem journals, reflections, end-of-unit performance tasks.</p>
         </div>
       </div>
     </details>
@@ -219,13 +175,13 @@
     <!-- Science -->
     <details class="curric">
       <summary class="curric-head">Science — curiosity, investigation, and clear lab habits</summary>
-      <div class="topic-grid" style="margin-top:.8rem">
+      <div class="topic-grid" style="margin-top:.8rem)">
         <div class="topic-card span-4">
           <h3>K–1 Exploration</h3>
           <p class="subhead">Outcomes: observe, ask questions, record with pictures/labels.</p>
           <ul>
             <li>Living vs. non-living; weather & seasons; needs of plants/animals.</li>
-            <li>Simple tests (magnets, ramps) with “predict → observe → share.”</li>
+            <li>Simple investigations (magnets, ramps) with “predict → observe → share.”</li>
             <li>Science talk stems (“I notice… I wonder… because…”).</li>
           </ul>
           <p><em>Activities:</em> seed journals, sink/float charting, weather calendars.</p>
@@ -233,10 +189,10 @@
         </div>
         <div class="topic-card span-4">
           <h3>Grades 2–3 Foundations</h3>
-          <p class="subhead">Outcomes: build testable questions & simple data tables.</p>
+          <p class="subhead">Outcomes: testable questions & simple data tables.</p>
           <ul>
-            <li>Habitats & food chains, solids/liquids/gases, light & sound.</li>
-            <li>Plan a simple procedure; collect & organize data.</li>
+            <li>Habitats & food chains; states of matter; light & sound basics.</li>
+            <li>Plan simple procedures; collect & organize data; read simple charts.</li>
             <li>Read short science texts; identify claim and evidence.</li>
           </ul>
           <p><em>Activities:</em> shadow tracking, melting/evaporation mini-labs, habitat models.</p>
@@ -246,8 +202,8 @@
           <h3>Grades 4–5 Inquiry</h3>
           <p class="subhead">Outcomes: fair tests, variable control, concise lab write-ups.</p>
           <ul>
-            <li>Earth systems, energy & motion, ecosystems & human impact.</li>
-            <li>Independent/dependent variables; trials & averages.</li>
+            <li>Earth systems, energy & motion; ecosystems & human impact.</li>
+            <li>Independent/dependent variables; trials & averages; graph interpretation.</li>
             <li>Write procedures, analyze results, state limitations.</li>
           </ul>
           <p><em>Activities:</em> ramp racers, water cycle in a bag, energy transfer demos.</p>
@@ -264,11 +220,11 @@
           <h3>K–1 Community</h3>
           <p class="subhead">Outcomes: recognize roles, rules, and simple timelines/maps.</p>
           <ul>
-            <li>Family & classroom rules, community helpers, classroom jobs.</li>
-            <li>Begin maps (home → school), cardinal directions basics.</li>
+            <li>Family & classroom rules; community helpers; classroom jobs.</li>
+            <li>Begin maps (home → school); cardinal directions basics; map keys.</li>
             <li>Personal timelines with photos and captions.</li>
           </ul>
-          <p><em>Activities:</em> “My community map”, helper interviews, 3-event timelines.</p>
+          <p><em>Activities:</em> “My community map,” helper interviews, 3-event timelines.</p>
           <p><em>Checks:</em> map keys, oral sharing, picture-based sort/sequence.</p>
         </div>
         <div class="topic-card span-4">
@@ -277,7 +233,7 @@
           <ul>
             <li>U.S. symbols & landmarks; local history snapshots.</li>
             <li>Early civilizations overview; similarities/differences charts.</li>
-            <li>Primary vs. secondary sources; cause & effect.</li>
+            <li>Primary vs. secondary sources; cause & effect in short texts.</li>
           </ul>
           <p><em>Activities:</em> artifact inference, postcard from a landmark, culture collage.</p>
           <p><em>Checks:</em> compare/contrast paragraphs, short source questions.</p>
@@ -290,7 +246,7 @@
             <li>Government branches basics; rights & responsibilities.</li>
             <li>Inquiry projects with citations; present findings clearly.</li>
           </ul>
-          <p><em>Activities:</em> “State expo”, government role-play, map labs.</p>
+          <p><em>Activities:</em> “State expo,” government role-play, map labs.</p>
           <p><em>Checks:</em> research outlines, presentation rubrics, quizzes.</p>
         </div>
       </div>
@@ -304,8 +260,8 @@
           <h3>K–1 Literacy</h3>
           <p class="subhead">Outcomes: decode CVC words, read simple texts, write sentences.</p>
           <ul>
-            <li>Phonemic awareness (blend, segment), phonics (CVC, digraphs).</li>
-            <li>High-frequency words; guided reading for fluency.</li>
+            <li>Phonemic awareness (blend, segment); phonics (CVC, digraphs).</li>
+            <li>High-frequency words; guided reading for fluency & confidence.</li>
             <li>Sentence writing with capitals, spacing, end marks.</li>
           </ul>
           <p><em>Activities:</em> word building, picture-sentence journals, partner reads.</p>
@@ -315,11 +271,11 @@
           <h3>Grades 2–3 Reading to Learn</h3>
           <p class="subhead">Outcomes: paragraph writing, main idea/details, growing stamina.</p>
           <ul>
-            <li>Fluency practice; retell & summarize with graphic organizers.</li>
-            <li>Identify main idea, supporting details, basic inference.</li>
+            <li>Fluency routines; retell & summarize with graphic organizers.</li>
+            <li>Main idea & supporting details; basic inference with text evidence.</li>
             <li>Write clear paragraphs; intro grammar & revising.</li>
           </ul>
-          <p><em>Activities:</em> “Paragraph puzzles”, RACES responses, book chats.</p>
+          <p><em>Activities:</em> “Paragraph puzzles,” RACES responses, book chats.</p>
           <p><em>Checks:</em> running records, short responses, revision checklists.</p>
         </div>
         <div class="topic-card span-4">
