@@ -4,56 +4,39 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Subjects & Curriculum (K–5) — Evergreen Tutoring Co.</title>
-  <meta name="description" content="Evergreen Tutoring Co. K–5 subjects with grade-by-grade outcomes, activities, and tips. Inline SVG illustrations and animations, no new external assets."/>
+  <meta name="description" content="Evergreen Tutoring Co. — Detailed, outcomes-based K–5 curriculum for Math, Science, History, and Reading/Writing with clear goals, example activities, and assessment methods."/>
   <!-- Keep your existing site styles & scripts -->
   <link rel="stylesheet" href="css/style.css"/>
 
-  <!-- Inline-only styles for this page (animations, SVG tweaks, layout helpers) -->
+  <!-- Local-only styles for this page (no animations) -->
   <style>
-    /* --- Local tokens (harmonize with existing palette) --- */
     :root{
       --eg-ink:#0B3B2E; --eg-brand:#0F766E; --eg-brand2:#065F46;
-      --eg-accent:#A7F3D0; --eg-soft:#ECFDF5; --eg-line:#E2E8F0;
+      --eg-soft:#ECFDF5; --eg-line:#E2E8F0;
     }
-
-    /* Page hero add-ons */
     .subjects-hero{
       display:grid; grid-template-columns:1.2fr 1fr; gap:1.5rem; align-items:center;
       padding: 1.25rem 0 0;
     }
     .subjects-illo{ background:#fff; border:1px solid var(--eg-line); border-radius:16px; overflow:hidden; box-shadow: var(--shadow); }
-
-    /* Cards tuned for this page */
-    .topic-card{ background:#fff; border:1px solid var(--eg-line); border-radius:16px; padding:1rem; box-shadow: var(--shadow); }
     .topic-grid{ display:grid; gap:1rem; grid-template-columns: repeat(12,1fr); }
-    .topic-card.span-6{ grid-column: span 6; }
-    .topic-card.span-4{ grid-column: span 4; }
-    .topic-card h3{ margin:.25rem 0; }
-    .topic-badge{ display:inline-block; background:#E7F9F3; color:#075E54; border:1px solid #CFF7EA; border-radius:999px; font-weight:700; font-size:.8rem; padding:.2rem .55rem;}
-
-    /* Collapsibles (no extra JS needed) */
+    .topic-card{ background:#fff; border:1px solid var(--eg-line); border-radius:16px; padding:1rem; box-shadow: var(--shadow); }
+    .span-4{ grid-column: span 4; }
+    .span-6{ grid-column: span 6; }
+    .span-12{ grid-column: span 12; }
+    .topic-card h3{ margin:.2rem 0 .4rem }
+    .subhead{ color:#3E6256; margin:.25rem 0 .75rem; font-size:.95rem }
+    .badge{ display:inline-block; background:#E7F9F3; color:#075E54; border:1px solid #CFF7EA; border-radius:999px; font-weight:700; font-size:.8rem; padding:.18rem .55rem; }
+    .thin-table{ width:100%; border-collapse:collapse; background:#fff; border-radius:16px; overflow:hidden; box-shadow:var(--shadow); }
+    .thin-table th,.thin-table td{ padding:.8rem 1rem; border-bottom:1px solid #EEF2F6; text-align:left }
+    .thin-table th{ background:var(--eg-soft) }
     details.curric{ background:#fff; border:1px solid var(--eg-line); border-radius:14px; padding:.6rem .8rem; box-shadow:var(--shadow); }
     details.curric + details.curric{ margin-top:.6rem; }
     summary.curric-head{ list-style:none; cursor:pointer; display:flex; align-items:center; gap:.5rem; color:var(--eg-brand2); font-weight:800; }
     summary.curric-head::-webkit-details-marker{ display:none; }
-    .chev{ transition: transform .2s ease; }
-    details[open] .chev{ transform: rotate(90deg); }
-
-    /* Table look for learning progressions */
-    .thin-table{ width:100%; border-collapse:collapse; background:#fff; border-radius:16px; overflow:hidden; box-shadow:var(--shadow); }
-    .thin-table th, .thin-table td{ padding:.8rem 1rem; border-bottom:1px solid #EEF2F6; text-align:left; }
-    .thin-table th{ background:var(--eg-soft); }
-
-    /* Local animations */
-    @keyframes floaty { 0%{transform:translateY(0)} 50%{transform:translateY(-8px)} 100%{transform:translateY(0)} }
-    @keyframes pop { 0%{opacity:0; transform:translateY(8px)} 100%{opacity:1; transform:none} }
-    .floaty{ animation: floaty 6s ease-in-out infinite; }
-    .pop{ animation: pop .5s ease both; }
-
-    /* Responsive adjustments */
     @media (max-width: 900px){
       .subjects-hero{ grid-template-columns:1fr; }
-      .topic-card.span-6, .topic-card.span-4{ grid-column: span 12; }
+      .span-4,.span-6{ grid-column: span 12; }
     }
   </style>
 </head>
@@ -72,7 +55,7 @@
         <rect rx="12" ry="12" width="96" height="96" fill="url(#eg)"/>
         <g transform="translate(18,18)">
           <path d="M30 0 L60 24 L30 48 L0 24 Z" fill="#A7F3D0"/>
-          <circle cx="30" cy="24" r="10" fill="#ECFDF5" class="floaty"/>
+          <circle cx="30" cy="24" r="10" fill="#ECFDF5"/>
         </g>
       </svg>
       <div class="brand">Evergreen Tutoring Co.</div>
@@ -93,20 +76,19 @@
 <div class="container">
   <!-- HERO -->
   <section class="subjects-hero">
-    <div class="pop">
+    <div>
       <div class="kicker">K–5 Programs</div>
-      <h1>Clear learning paths with hands-on practice</h1>
-      <p class="lead">We scaffold skills in <strong>Math, Science, History, and Reading/Writing</strong> across K–1, 2–3, and 4–5. Expect diagnostic placement, small-group or 1:1 formats, and progress notes after sessions.</p>
+      <h1>Clear, outcomes-based learning paths for every grade</h1>
+      <p class="lead">We teach core skills in <strong>Math, Science, History, and Reading/Writing</strong> with a structured sequence, practical activities, and simple progress feedback parents can trust.</p>
       <div class="cta">
-        <span class="topic-badge">Diagnostic placement</span>
-        <span class="topic-badge">Small groups or 1:1</span>
-        <span class="topic-badge">Progress tracking</span>
+        <span class="badge">Diagnostic placement</span>
+        <span class="badge">Small groups or 1:1</span>
+        <span class="badge">Progress notes & targets</span>
       </div>
     </div>
-
-    <!-- Inline SVG “illustration” with gentle motion -->
-    <figure class="subjects-illo pop" aria-label="Evergreen learning illustration">
-      <svg viewBox="0 0 560 360" width="100%" role="img" aria-label="Kids learning with math, science, and history icons">
+    <!-- Static inline illustration (no animation) -->
+    <figure class="subjects-illo" aria-label="Evergreen subjects illustration">
+      <svg viewBox="0 0 560 360" width="100%" role="img" aria-label="Books and subject icons">
         <defs>
           <linearGradient id="bgf" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stop-color="#ECFDF5"/>
@@ -114,233 +96,258 @@
           </linearGradient>
         </defs>
         <rect width="560" height="360" rx="16" fill="url(#bgf)"/>
+        <!-- Shelves -->
+        <rect x="40" y="250" width="480" height="12" rx="6" fill="#D1FAE5"/>
+        <rect x="80" y="262" width="400" height="8" rx="4" fill="#E7F9F3"/>
         <!-- Books -->
-        <g transform="translate(60,220)">
-          <rect width="140" height="90" rx="10" fill="#FFFFFF" stroke="#D1FAE5"/>
-          <rect x="160" width="140" height="90" rx="10" fill="#FFFFFF" stroke="#D1FAE5"/>
-          <rect x="320" width="140" height="90" rx="10" fill="#FFFFFF" stroke="#D1FAE5"/>
-          <rect y="70" width="420" height="10" rx="5" fill="#D1FAE5"/>
+        <g fill="#FFFFFF" stroke="#D1FAE5">
+          <rect x="70"  y="170" width="120" height="80" rx="10"/>
+          <rect x="210" y="170" width="120" height="80" rx="10"/>
+          <rect x="350" y="170" width="120" height="80" rx="10"/>
         </g>
-        <!-- Icons -->
-        <g transform="translate(95,90) scale(1.1)">
+        <!-- Subject icons -->
+        <g transform="translate(110,120)">
           <!-- Math -->
-          <g class="floaty">
-            <circle cx="0" cy="0" r="28" fill="#A7F3D0" stroke="#84E1BC"/>
-            <text x="-12" y="6" font-family="ui-sans-serif, system-ui" font-size="24" fill="#065F46">7×3</text>
-          </g>
+          <circle cx="0" cy="0" r="26" fill="#A7F3D0" stroke="#84E1BC"/>
+          <text x="-12" y="6" font-family="ui-sans-serif, system-ui" font-size="22" fill="#065F46">7×3</text>
+        </g>
+        <g transform="translate(250,120)">
           <!-- Science -->
-          <g transform="translate(130,0)" class="floaty" style="animation-delay: .6s">
-            <circle cx="0" cy="0" r="28" fill="#A7F3D0" stroke="#84E1BC"/>
-            <path d="M-8 6 Q0 -12 8 6 Z" fill="none" stroke="#065F46" stroke-width="2"/>
-            <circle cx="-8" cy="6" r="3" fill="#065F46"/><circle cx="0" cy="-12" r="3" fill="#065F46"/><circle cx="8" cy="6" r="3" fill="#065F46"/>
-          </g>
+          <circle cx="0" cy="0" r="26" fill="#A7F3D0" stroke="#84E1BC"/>
+          <path d="M-8 6 Q0 -12 8 6 Z" fill="none" stroke="#065F46" stroke-width="2"/>
+          <circle cx="-8" cy="6" r="3" fill="#065F46"/>
+          <circle cx="0" cy="-12" r="3" fill="#065F46"/>
+          <circle cx="8" cy="6" r="3" fill="#065F46"/>
+        </g>
+        <g transform="translate(390,120)">
           <!-- History -->
-          <g transform="translate(260,0)" class="floaty" style="animation-delay: 1.2s">
-            <circle cx="0" cy="0" r="28" fill="#A7F3D0" stroke="#84E1BC"/>
-            <rect x="-12" y="-10" width="24" height="20" rx="3" fill="none" stroke="#065F46" stroke-width="2"/>
-            <path d="M-6 -10 v-6 h12 v6" stroke="#065F46" fill="none" stroke-width="2"/>
-          </g>
+          <circle cx="0" cy="0" r="26" fill="#A7F3D0" stroke="#84E1BC"/>
+          <rect x="-12" y="-10" width="24" height="20" rx="3" fill="none" stroke="#065F46" stroke-width="2"/>
+          <path d="M-6 -10 v-6 h12 v6" stroke="#065F46" fill="none" stroke-width="2"/>
+        </g>
+        <g transform="translate(500,60)">
           <!-- Reading -->
-          <g transform="translate(390,0)" class="floaty" style="animation-delay: 1.8s">
-            <circle cx="0" cy="0" r="28" fill="#A7F3D0" stroke="#84E1BC"/>
-            <path d="M-12 10 Q-6 0 0 6 Q6 0 12 10" fill="none" stroke="#065F46" stroke-width="2"/>
-            <path d="M-12 -10 Q-6 -2 0 -6 Q6 -2 12 -10" fill="none" stroke="#065F46" stroke-width="2"/>
-          </g>
+          <circle cx="0" cy="0" r="26" fill="#A7F3D0" stroke="#84E1BC"/>
+          <path d="M-12 10 Q-6 0 0 6 Q6 0 12 10" fill="none" stroke="#065F46" stroke-width="2"/>
+          <path d="M-12 -10 Q-6 -2 0 -6 Q6 -2 12 -10" fill="none" stroke="#065F46" stroke-width="2"/>
         </g>
       </svg>
     </figure>
   </section>
 
-  <!-- At-a-glance progression -->
+  <!-- At-a-glance -->
   <section>
-    <h2>Skill progression by grade band</h2>
+    <h2>What we cover at each stage</h2>
     <table class="thin-table" aria-describedby="progression">
       <thead><tr><th>Subject</th><th>K–1</th><th>2–3</th><th>4–5</th></tr></thead>
       <tbody>
         <tr>
           <td><strong>Math</strong></td>
-          <td>Counting, number sense, shapes, add/sub within 20</td>
-          <td>Place value, fluency, intro multiplication/division, time & money</td>
-          <td>Multi-digit operations, fractions/decimals, geometry, multi-step word problems</td>
+          <td>Number sense, early operations, shapes, measurements</td>
+          <td>Place value, fluency, multiplication/division concepts, time & money</td>
+          <td>Multi-digit operations, fractions/decimals, geometry, multi-step problems</td>
         </tr>
         <tr>
           <td><strong>Science</strong></td>
-          <td>Plants & animals, weather, simple experiments</td>
-          <td>Habitats, matter, force & motion, data tables</td>
-          <td>Earth systems, energy, fair tests, lab write-ups</td>
+          <td>Living things & weather, observation & recording</td>
+          <td>Habitats, matter, forces, light & sound; simple data tables</td>
+          <td>Earth systems, energy, fair tests, structured lab write-ups</td>
         </tr>
         <tr>
           <td><strong>History</strong></td>
-          <td>Community & rules, maps & timelines</td>
-          <td>U.S. symbols, cultures, early civilizations</td>
-          <td>U.S. regions, government basics, primary sources</td>
+          <td>Community, rules, maps & timelines</td>
+          <td>U.S. symbols, cultures, early civilizations, comparing communities</td>
+          <td>U.S. regions, government basics, inquiry with primary/secondary sources</td>
         </tr>
         <tr>
           <td><strong>Reading/Writing</strong></td>
-          <td>Phonics, sight words, read-alouds, handwriting</td>
-          <td>Fluency, paragraphs, main idea & details</td>
-          <td>Summaries, essays, research, grammar & revision</td>
+          <td>Phonemic awareness, phonics, sight words, handwriting</td>
+          <td>Fluency, paragraphing, main idea & details, grammar</td>
+          <td>Summaries, multi-paragraph essays, research, revision & editing</td>
         </tr>
       </tbody>
     </table>
   </section>
 
-  <!-- Deep dives (collapsible per subject) -->
+  <!-- Deep Curriculum Descriptions -->
   <section>
-    <h2>Deep dives & sample activities</h2>
+    <h2>Detailed curriculum & example learning sequences</h2>
 
     <!-- Math -->
-    <details class="curric pop" open>
-      <summary class="curric-head">
-        <svg class="chev" width="16" height="16" viewBox="0 0 24 24"><path d="M8 5l8 7-8 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-        Math — build fluency and problem-solving
-        <span class="topic-badge" style="margin-left:.5rem">games & manipulatives</span>
-      </summary>
+    <details class="curric" open>
+      <summary class="curric-head">Math — from number sense to confident problem-solving</summary>
       <div class="topic-grid" style="margin-top:.8rem">
         <div class="topic-card span-4">
-          <h3>K–1</h3>
+          <h3>K–1 Foundations</h3>
+          <p class="subhead">Outcomes: solid number sense, accurate counting, early addition/subtraction.</p>
           <ul>
-            <li>Counting to 100, ten-frames, number bonds</li>
-            <li>Shapes & measurement with real objects</li>
-            <li><em>Activity:</em> “Grocery sort” — group items by attribute, add/sub within 10</li>
+            <li><strong>Number Sense:</strong> count to 100, compare numbers, use 10-frames & number lines.</li>
+            <li><strong>Operations:</strong> add/sub within 10 (then 20) using manipulatives & drawings.</li>
+            <li><strong>Geometry & Measure:</strong> identify shapes, length/weight with nonstandard units.</li>
+            <li><strong>Word Problems:</strong> picture models to choose the right operation.</li>
           </ul>
+          <p><em>Activities:</em> “Grocery sort”, dice addition races, build-and-trace shapes.</p>
+          <p><em>Checks:</em> quick fluency sprints, exit tickets, parent-friendly goal trackers.</p>
         </div>
         <div class="topic-card span-4">
-          <h3>2–3</h3>
+          <h3>Grades 2–3 Growth</h3>
+          <p class="subhead">Outcomes: fluent add/sub, build multiplication/division concepts.</p>
           <ul>
-            <li>Place value to 1,000, regrouping fluency</li>
-            <li>Arrays → multiplication facts; time & money</li>
-            <li><em>Activity:</em> “Array city” — build cityscapes from equal groups</li>
+            <li><strong>Place Value:</strong> to 1,000; regrouping with base-10 blocks.</li>
+            <li><strong>Facts & Fluency:</strong> add/sub within 100; arrays, equal groups (2–10s).</li>
+            <li><strong>Data & Time:</strong> read clocks, money problems, bar/picture graphs.</li>
+            <li><strong>Word Problems:</strong> 1–2 step, model-first strategies.</li>
           </ul>
+          <p><em>Activities:</em> “Array city”, coin-count shop, graph the class survey.</p>
+          <p><em>Checks:</em> timed math facts (balanced), strategy conferences, mini-quizzes.</p>
         </div>
         <div class="topic-card span-4">
-          <h3>4–5</h3>
+          <h3>Grades 4–5 Mastery</h3>
+          <p class="subhead">Outcomes: multi-step problem solving, fraction/decimal proficiency.</p>
           <ul>
-            <li>Multi-digit operations, factors & multiples</li>
-            <li>Fractions/decimals; geometry & measurement</li>
-            <li><em>Activity:</em> “Recipe doubles” — fraction ops with real recipes</li>
+            <li><strong>Operations:</strong> multi-digit add/sub/multiply/divide with place-value models.</li>
+            <li><strong>Fractions/Decimals:</strong> equivalence, compare/order, add/sub; tenths/hundredths.</li>
+            <li><strong>Measurement & Geometry:</strong> area/volume/angles; coordinate grids.</li>
+            <li><strong>Word Problems:</strong> multi-step with estimation & reasonableness checks.</li>
           </ul>
+          <p><em>Activities:</em> “Recipe doubles” (fraction ops), angle scavenger hunt, budget projects.</p>
+          <p><em>Checks:</em> mixed-problem journals, corrections with reflection, unit end-tasks.</p>
         </div>
       </div>
     </details>
 
     <!-- Science -->
-    <details class="curric pop">
-      <summary class="curric-head">
-        <svg class="chev" width="16" height="16" viewBox="0 0 24 24"><path d="M8 5l8 7-8 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-        Science — curiosity through fair tests
-        <span class="topic-badge" style="margin-left:.5rem">hands-on labs</span>
-      </summary>
+    <details class="curric">
+      <summary class="curric-head">Science — curiosity, investigation, and clear lab habits</summary>
       <div class="topic-grid" style="margin-top:.8rem">
         <div class="topic-card span-4">
-          <h3>K–1</h3>
+          <h3>K–1 Exploration</h3>
+          <p class="subhead">Outcomes: observe, ask questions, record with pictures/labels.</p>
           <ul>
-            <li>Living/non-living, weather & seasons</li>
-            <li>Observe & record with pictures</li>
-            <li><em>Activity:</em> “Sink or float” prediction charts</li>
+            <li>Living vs. non-living; weather & seasons; needs of plants/animals.</li>
+            <li>Simple tests (magnets, ramps) with “predict → observe → share.”</li>
+            <li>Science talk stems (“I notice… I wonder… because…”).</li>
           </ul>
+          <p><em>Activities:</em> seed journals, sink/float charting, weather calendars.</p>
+          <p><em>Checks:</em> labeled drawings, oral explanations, vocabulary cards.</p>
         </div>
         <div class="topic-card span-4">
-          <h3>2–3</h3>
+          <h3>Grades 2–3 Foundations</h3>
+          <p class="subhead">Outcomes: build testable questions & simple data tables.</p>
           <ul>
-            <li>Habitats, food chains; matter & states</li>
-            <li>Data tables & simple graphs</li>
-            <li><em>Activity:</em> “Shadow chase” — light & measurement</li>
+            <li>Habitats & food chains, solids/liquids/gases, light & sound.</li>
+            <li>Plan a simple procedure; collect & organize data.</li>
+            <li>Read short science texts; identify claim and evidence.</li>
           </ul>
+          <p><em>Activities:</em> shadow tracking, melting/evaporation mini-labs, habitat models.</p>
+          <p><em>Checks:</em> data-table completion, CER (Claim–Evidence–Reasoning) statements.</p>
         </div>
         <div class="topic-card span-4">
-          <h3>4–5</h3>
+          <h3>Grades 4–5 Inquiry</h3>
+          <p class="subhead">Outcomes: fair tests, variable control, concise lab write-ups.</p>
           <ul>
-            <li>Earth systems, energy & motion</li>
-            <li>Plan & run fair tests; write lab reports</li>
-            <li><em>Activity:</em> “Ramp racers” — variables & averages</li>
+            <li>Earth systems, energy & motion, ecosystems & human impact.</li>
+            <li>Independent/dependent variables; trials & averages.</li>
+            <li>Write procedures, analyze results, state limitations.</li>
           </ul>
+          <p><em>Activities:</em> ramp racers, water cycle in a bag, energy transfer demos.</p>
+          <p><em>Checks:</em> rubric-based lab reports, mini-presentations, vocabulary quizzes.</p>
         </div>
       </div>
     </details>
 
     <!-- History -->
-    <details class="curric pop">
-      <summary class="curric-head">
-        <svg class="chev" width="16" height="16" viewBox="0 0 24 24"><path d="M8 5l8 7-8 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-        History & Social Studies — maps, culture, and civic basics
-        <span class="topic-badge" style="margin-left:.5rem">primary sources</span>
-      </summary>
+    <details class="curric">
+      <summary class="curric-head">History & Social Studies — maps, culture, and civic sense</summary>
       <div class="topic-grid" style="margin-top:.8rem">
         <div class="topic-card span-4">
-          <h3>K–1</h3>
+          <h3>K–1 Community</h3>
+          <p class="subhead">Outcomes: recognize roles, rules, and simple timelines/maps.</p>
           <ul>
-            <li>Community helpers, rules & routines</li>
-            <li>Maps & timelines with photos</li>
-            <li><em>Activity:</em> “My timeline” — 3-event personal history</li>
+            <li>Family & classroom rules, community helpers, classroom jobs.</li>
+            <li>Begin maps (home → school), cardinal directions basics.</li>
+            <li>Personal timelines with photos and captions.</li>
           </ul>
+          <p><em>Activities:</em> “My community map”, helper interviews, 3-event timelines.</p>
+          <p><em>Checks:</em> map keys, oral sharing, picture-based sort/sequence.</p>
         </div>
         <div class="topic-card span-4">
-          <h3>2–3</h3>
+          <h3>Grades 2–3 Connections</h3>
+          <p class="subhead">Outcomes: compare communities & cultures; use simple sources.</p>
           <ul>
-            <li>Local & national symbols, early cultures</li>
-            <li>Compare communities; cause & effect</li>
-            <li><em>Activity:</em> “Artifact mystery” — observe → infer</li>
+            <li>U.S. symbols & landmarks; local history snapshots.</li>
+            <li>Early civilizations overview; similarities/differences charts.</li>
+            <li>Primary vs. secondary sources; cause & effect.</li>
           </ul>
+          <p><em>Activities:</em> artifact inference, postcard from a landmark, culture collage.</p>
+          <p><em>Checks:</em> compare/contrast paragraphs, short source questions.</p>
         </div>
         <div class="topic-card span-4">
-          <h3>4–5</h3>
+          <h3>Grades 4–5 Inquiry</h3>
+          <p class="subhead">Outcomes: U.S. regions & government basics; research skills.</p>
           <ul>
-            <li>U.S. regions & gov’t basics; inquiry projects</li>
-            <li>Read/annotate primary & secondary sources</li>
-            <li><em>Activity:</em> “State expo” — research & present</li>
+            <li>Physical & human geography; map skills & data reading.</li>
+            <li>Government branches basics; rights & responsibilities.</li>
+            <li>Inquiry projects with citations; present findings clearly.</li>
           </ul>
+          <p><em>Activities:</em> “State expo”, government role-play, map labs.</p>
+          <p><em>Checks:</em> research outlines, presentation rubrics, quizzes.</p>
         </div>
       </div>
     </details>
 
     <!-- Reading/Writing -->
-    <details class="curric pop">
-      <summary class="curric-head">
-        <svg class="chev" width="16" height="16" viewBox="0 0 24 24"><path d="M8 5l8 7-8 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-        Reading & Writing — from phonics to research
-        <span class="topic-badge" style="margin-left:.5rem">structured literacy</span>
-      </summary>
+    <details class="curric">
+      <summary class="curric-head">Reading & Writing — structured literacy to research writing</summary>
       <div class="topic-grid" style="margin-top:.8rem">
         <div class="topic-card span-4">
-          <h3>K–1</h3>
+          <h3>K–1 Literacy</h3>
+          <p class="subhead">Outcomes: decode CVC words, read simple texts, write sentences.</p>
           <ul>
-            <li>Phonemic awareness, phonics & decoding</li>
-            <li>High-frequency words; read-alouds</li>
-            <li><em>Activity:</em> “Word builders” with tiles</li>
+            <li>Phonemic awareness (blend, segment), phonics (CVC, digraphs).</li>
+            <li>High-frequency words; guided reading for fluency.</li>
+            <li>Sentence writing with capitals, spacing, end marks.</li>
           </ul>
+          <p><em>Activities:</em> word building, picture-sentence journals, partner reads.</p>
+          <p><em>Checks:</em> weekly decodable checks, sight-word trackers, dictation.</p>
         </div>
         <div class="topic-card span-4">
-          <h3>2–3</h3>
+          <h3>Grades 2–3 Reading to Learn</h3>
+          <p class="subhead">Outcomes: paragraph writing, main idea/details, growing stamina.</p>
           <ul>
-            <li>Fluency; main idea & details; paragraphing</li>
-            <li>Grammar & sentence combining</li>
-            <li><em>Activity:</em> “Paragraph puzzles” (topic → details)</li>
+            <li>Fluency practice; retell & summarize with graphic organizers.</li>
+            <li>Identify main idea, supporting details, basic inference.</li>
+            <li>Write clear paragraphs; intro grammar & revising.</li>
           </ul>
+          <p><em>Activities:</em> “Paragraph puzzles”, RACES responses, book chats.</p>
+          <p><em>Checks:</em> running records, short responses, revision checklists.</p>
         </div>
         <div class="topic-card span-4">
-          <h3>4–5</h3>
+          <h3>Grades 4–5 Author’s Craft</h3>
+          <p class="subhead">Outcomes: multi-paragraph essays, research & citations, editing.</p>
           <ul>
-            <li>Summaries & inference; multi-paragraph essays</li>
-            <li>Research, quoting, and revision cycles</li>
-            <li><em>Activity:</em> “Claim–evidence–reasoning” journals</li>
+            <li>Summarize multi-section texts; compare themes & structures.</li>
+            <li>Plan/draft/revise essays (informative/opinion/narrative).</li>
+            <li>Research notes, quoting/paraphrasing, bibliography basics.</li>
           </ul>
+          <p><em>Activities:</em> CER journals, peer review, mini-research with slides.</p>
+          <p><em>Checks:</em> writing rubrics, annotated drafts, conferencing notes.</p>
         </div>
       </div>
     </details>
   </section>
 
-  <!-- Study tips -->
+  <!-- Home Support -->
   <section>
-    <h2>Study tips that work at home</h2>
+    <h2>What parents can expect</h2>
     <div class="topic-grid">
       <div class="topic-card span-6">
-        <h3>Short, frequent practice</h3>
-        <p>10–15 minute bursts, 4–5x/week, beat long cram sessions. Use timers and celebrate small wins.</p>
+        <h3>Short, consistent practice</h3>
+        <p>We recommend 10–20 minute practice windows, 4–5 times per week. We provide printable routines and quick games so families can support learning without stress.</p>
       </div>
       <div class="topic-card span-6">
-        <h3>Show your thinking</h3>
-        <p>Have students talk through their steps or annotate. We model sentence starters and math diagrams.</p>
+        <h3>Clear feedback</h3>
+        <p>After sessions, you’ll get a short note: skills covered, what went well, what’s next, and a simple at-home tip. We set 2–3 concrete targets per month and track progress together.</p>
       </div>
     </div>
   </section>
@@ -367,22 +374,7 @@
   </div>
 </footer>
 
-<!-- Keep your existing main.js; any NEW behavior specific to this page lives inline below -->
-<script>
-  // Optional: reveal-on-scroll for .pop elements (contained here, not in main.js)
-  (function(){
-    const els = document.querySelectorAll('.pop');
-    const obs = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){ e.target.style.animationPlayState = 'running'; obs.unobserve(e.target); }
-      });
-    }, { threshold: .2 });
-    els.forEach(el=>{
-      el.style.animationPlayState = 'paused';
-      obs.observe(el);
-    });
-  })();
-</script>
+<!-- Keep your existing main.js -->
 <script src="js/main.js"></script>
 </body>
 </html>
